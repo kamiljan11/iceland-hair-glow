@@ -1,4 +1,5 @@
 import heroImg from "@/assets/hero-salon.jpg";
+import logoIcon from "@/assets/logo-icon.png";
 
 const HeroSection = () => {
   return (
