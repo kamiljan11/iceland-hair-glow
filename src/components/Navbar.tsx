@@ -16,25 +16,31 @@ const Navbar = () => {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll when mobile menu open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 safe-top ${
         scrolled
-          ? "bg-volcanic/95 backdrop-blur-md shadow-lg py-3"
-          : "bg-transparent py-6"
+          ? "bg-volcanic/95 backdrop-blur-md shadow-lg py-2 md:py-3"
+          : "bg-transparent py-4 md:py-6"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between px-6">
-        <a href="#" className="font-display text-2xl font-bold tracking-wider text-volcanic-foreground">
+      <div className="container mx-auto flex items-center justify-between px-4 md:px-6 safe-x">
+        <a href="#" className="font-display text-xl md:text-2xl font-bold tracking-wider text-volcanic-foreground">
           NORDIK <span className="text-gold">SALON</span>
         </a>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -52,25 +58,33 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile toggle - 44px touch target */}
         <button
-          className="md:hidden text-volcanic-foreground"
+          className="lg:hidden text-volcanic-foreground touch-target flex items-center justify-center"
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu - fullscreen overlay */}
       {mobileOpen && (
-        <div className="md:hidden bg-volcanic/98 backdrop-blur-md border-t border-volcanic-foreground/10 animate-fade-in">
-          <div className="flex flex-col items-center gap-6 py-8">
+        <div className="lg:hidden fixed inset-0 top-0 bg-volcanic/98 backdrop-blur-md animate-fade-in z-40 flex flex-col items-center justify-center safe-x">
+          <button
+            className="absolute top-4 right-4 text-volcanic-foreground touch-target flex items-center justify-center safe-top"
+            onClick={() => setMobileOpen(false)}
+            aria-label="Close menu"
+          >
+            <X size={28} />
+          </button>
+          <div className="flex flex-col items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-volcanic-foreground/80 hover:text-gold transition-colors text-sm tracking-[0.2em] uppercase font-body"
+                className="text-volcanic-foreground/80 hover:text-gold active:text-gold transition-colors text-lg tracking-[0.25em] uppercase font-body touch-target flex items-center"
               >
                 {link.label}
               </a>
@@ -78,7 +92,7 @@ const Navbar = () => {
             <a
               href="#booking"
               onClick={() => setMobileOpen(false)}
-              className="bg-gold text-gold-foreground px-8 py-3 text-sm tracking-[0.15em] uppercase font-body font-semibold"
+              className="bg-gold text-gold-foreground px-10 py-4 text-base tracking-[0.15em] uppercase font-body font-semibold mt-4 touch-target"
             >
               Book Now
             </a>

@@ -25,21 +25,21 @@ const GallerySection = () => {
   const filtered = filter === "All" ? images : images.filter((img) => img.category === filter);
 
   return (
-    <section id="gallery" className="py-24 md:py-32 bg-volcanic">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <p className="text-gold tracking-[0.3em] uppercase text-sm font-body mb-3">Our Work</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-volcanic-foreground mb-4">Gallery</h2>
-          <div className="w-16 h-px bg-gold mx-auto mb-8" />
-          <div className="flex justify-center gap-4 flex-wrap">
+    <section id="gallery" className="py-16 md:py-32 bg-volcanic">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center mb-8 md:mb-12">
+          <p className="text-gold tracking-[0.3em] uppercase text-xs md:text-sm font-body mb-2 md:mb-3">Our Work</p>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-volcanic-foreground mb-4">Gallery</h2>
+          <div className="w-16 h-px bg-gold mx-auto mb-6 md:mb-8" />
+          <div className="flex justify-center gap-2 md:gap-4 flex-wrap">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-5 py-2 text-sm tracking-[0.15em] uppercase font-body transition-all duration-300 ${
+                className={`px-4 md:px-5 py-2.5 text-xs md:text-sm tracking-[0.15em] uppercase font-body transition-all duration-300 touch-target ${
                   filter === cat
                     ? "bg-gold text-gold-foreground"
-                    : "border border-volcanic-foreground/20 text-volcanic-foreground/60 hover:border-gold hover:text-gold"
+                    : "border border-volcanic-foreground/20 text-volcanic-foreground/60 hover:border-gold hover:text-gold active:border-gold active:text-gold"
                 }`}
               >
                 {cat}
@@ -48,12 +48,12 @@ const GallerySection = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
           {filtered.map((img, i) => (
             <button
               key={i}
               onClick={() => setLightbox(img.src)}
-              className="relative overflow-hidden group aspect-[4/5] cursor-pointer"
+              className="relative overflow-hidden group aspect-[4/5] cursor-pointer active:scale-[0.98] transition-transform"
             >
               <img
                 src={img.src}
@@ -62,7 +62,7 @@ const GallerySection = () => {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-volcanic/0 group-hover:bg-volcanic/40 transition-all duration-500 flex items-end">
-                <span className="text-volcanic-foreground font-body text-sm tracking-wider p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                <span className="text-volcanic-foreground font-body text-xs md:text-sm tracking-wider p-3 md:p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                   {img.alt}
                 </span>
               </div>
@@ -71,22 +71,23 @@ const GallerySection = () => {
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox - touch-friendly close */}
       {lightbox && (
         <div
-          className="fixed inset-0 z-50 bg-volcanic/95 flex items-center justify-center p-6 animate-fade-in"
+          className="fixed inset-0 z-50 bg-volcanic/95 flex items-center justify-center p-4 md:p-6 animate-fade-in"
           onClick={() => setLightbox(null)}
         >
           <button
-            className="absolute top-6 right-6 text-volcanic-foreground/60 hover:text-gold transition-colors"
+            className="absolute top-4 right-4 text-volcanic-foreground/60 hover:text-gold transition-colors touch-target flex items-center justify-center safe-top z-10"
             onClick={() => setLightbox(null)}
+            aria-label="Close lightbox"
           >
-            <X size={32} />
+            <X size={28} />
           </button>
           <img
             src={lightbox}
             alt="Gallery preview"
-            className="max-w-full max-h-[85vh] object-contain"
+            className="max-w-full max-h-[80vh] md:max-h-[85vh] object-contain"
           />
         </div>
       )}
