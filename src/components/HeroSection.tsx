@@ -15,7 +15,8 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-volcanic/70 via-volcanic/40 to-volcanic/80" />
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-5 md:px-6">
-        <p className="text-gold tracking-[0.3em] md:tracking-[0.4em] uppercase text-xs md:text-base font-body mb-3 md:mb-4 opacity-0 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+        <img src={logoIcon} alt="Nordik Salon logo" className="w-16 h-16 md:w-20 md:h-20 mb-4 md:mb-6 invert opacity-80 animate-fade-up" style={{ animationDelay: "0.1s" }} />
+        <p className="text-gold tracking-[0.3em] md:tracking-[0.4em] uppercase text-xs md:text-base font-body mb-3 md:mb-4 opacity-0 animate-fade-up" style={{ animationDelay: "0.3s" }}>
           Reykjavík's Premier Hair Experience
         </p>
         <h1 className="font-display text-[2.5rem] leading-[1.1] md:text-7xl lg:text-8xl font-bold text-volcanic-foreground mb-4 md:mb-6 opacity-0 animate-fade-up" style={{ animationDelay: "0.5s" }}>
