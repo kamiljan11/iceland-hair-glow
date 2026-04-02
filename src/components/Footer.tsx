@@ -94,8 +94,8 @@ const Footer = () => {
           <p className="font-body text-volcanic-foreground/30 text-[11px] md:text-xs tracking-wider text-center">
             Websites like this from only{" "}
             <span className="text-gold font-semibold">19,990 ISK/month</span>{" "}
-            — personalised for your salon.{" "}
-            <a href="#" className="underline hover:text-gold active:text-gold transition-colors">Learn more</a>
+            — personalised for your salon by{" "}
+            <a href="https://spirit-way-bloom.lovable.app" target="_blank" rel="noopener noreferrer" className="underline hover:text-gold active:text-gold transition-colors font-semibold">Business Autopilot</a>
           </p>
         </div>
       </div>
