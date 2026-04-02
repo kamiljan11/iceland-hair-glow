@@ -63,14 +63,25 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Map placeholder */}
+          {/* Map */}
           <div>
             <h4 className="font-display text-base md:text-lg font-semibold text-volcanic-foreground mb-3 md:mb-4">Find Us</h4>
-            <div className="aspect-video sm:aspect-square bg-volcanic-foreground/5 border border-volcanic-foreground/10 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="text-gold mx-auto mb-2" size={24} />
-                <p className="font-body text-volcanic-foreground/40 text-xs">Map placeholder</p>
-              </div>
+            <div className="aspect-video sm:aspect-square border border-volcanic-foreground/10 overflow-hidden relative">
+              <iframe
+                title="Nordik Salon Location"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-21.9350%2C64.1440%2C-21.9200%2C64.1490&layer=mapnik&marker=64.1466%2C-21.9275"
+                className="w-full h-full border-0 grayscale contrast-125 opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+              <a
+                href="https://www.openstreetmap.org/?mlat=64.1466&mlon=-21.9275#map=17/64.1466/-21.9275"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-2 right-2 bg-volcanic/80 backdrop-blur-sm text-volcanic-foreground text-xs px-3 py-1.5 font-body hover:bg-gold hover:text-gold-foreground transition-colors"
+              >
+                Open Map ↗
+              </a>
             </div>
           </div>
         </div>
