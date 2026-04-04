@@ -12,7 +12,6 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <DemoBanner />
       <Navbar />
       <HeroSection />
       <ServicesSection />
