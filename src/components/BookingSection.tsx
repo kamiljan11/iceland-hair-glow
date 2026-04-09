@@ -1,18 +1,18 @@
 import { useState } from "react";
-import { Calendar, Clock, User, Check, ChevronRight, ChevronLeft } from "lucide-react";
+import { Calendar, Clock, User, Check, ChevronRight, ChevronLeft, ExternalLink } from "lucide-react";
 
 const serviceOptions = [
-  { id: "cut", name: "Cut & Style", price: "From 5.900 ISK" },
-  { id: "color", name: "Color", price: "From 9.900 ISK" },
-  { id: "treatment", name: "Treatment", price: "From 6.900 ISK" },
-  { id: "bridal", name: "Bridal", price: "From 12.900 ISK" },
+  { id: "cut", name: "Klipping & Stíll", price: "Frá 5.900 kr." },
+  { id: "color", name: "Litun", price: "Frá 9.900 kr." },
+  { id: "treatment", name: "Meðferð", price: "Frá 6.900 kr." },
+  { id: "bridal", name: "Brúðarsnyrtingar", price: "Frá 12.900 kr." },
 ];
 
 const stylistOptions = [
   { id: "elisabet", name: "Elísabet Jónsdóttir" },
   { id: "bjarki", name: "Bjarki Sigurðsson" },
   { id: "solrun", name: "Sólrún Magnúsdóttir" },
-  { id: "any", name: "No Preference" },
+  { id: "any", name: "Sama — No Preference" },
 ];
 
 const timeSlots = ["09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
@@ -24,7 +24,7 @@ const BookingSection = () => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
 
-  const steps = ["Service", "Stylist", "Date & Time", "Confirm"];
+  const steps = ["Þjónusta", "Hárgreiðari", "Dagur & tími", "Staðfesta"];
 
   const canProceed = () => {
     if (step === 0) return !!service;
@@ -37,12 +37,19 @@ const BookingSection = () => {
     <section id="booking" className="py-16 md:py-32 bg-volcanic">
       <div className="container mx-auto px-4 md:px-6 max-w-2xl">
         <div className="text-center mb-8 md:mb-12">
-          <p className="text-gold tracking-[0.3em] uppercase text-xs md:text-sm font-body mb-2 md:mb-3">Reserve Your Spot</p>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-volcanic-foreground mb-4">Book an Appointment</h2>
-          <div className="w-16 h-px bg-gold mx-auto" />
+          <p className="text-gold tracking-[0.3em] uppercase text-xs md:text-sm font-body mb-2 md:mb-3">Pantaðu tíma</p>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-volcanic-foreground mb-4">Bóka tíma</h2>
+          <div className="w-16 h-px bg-gold mx-auto mb-4" />
+          {/* Noona.is reference — the actual booking platform used in Iceland */}
+          <p className="font-body text-volcanic-foreground/40 text-xs">
+            Eða bókaðu beint á{" "}
+            <a href="https://noona.is" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline inline-flex items-center gap-1">
+              Noona.is <ExternalLink size={10} />
+            </a>
+          </p>
         </div>
 
-        {/* Step indicators - compact on mobile */}
+        {/* Step indicators */}
         <div className="flex items-center justify-center gap-1.5 md:gap-2 mb-8 md:mb-12">
           {steps.map((label, i) => (
             <div key={label} className="flex items-center gap-1.5 md:gap-2">
@@ -66,7 +73,7 @@ const BookingSection = () => {
           {/* Step 0: Service */}
           {step === 0 && (
             <div className="space-y-2.5 md:space-y-3">
-              <h3 className="font-display text-lg md:text-xl text-volcanic-foreground mb-4 md:mb-6">Select a Service</h3>
+              <h3 className="font-display text-lg md:text-xl text-volcanic-foreground mb-4 md:mb-6">Veldu þjónustu</h3>
               {serviceOptions.map((s) => (
                 <button
                   key={s.id}
@@ -87,7 +94,7 @@ const BookingSection = () => {
           {/* Step 1: Stylist */}
           {step === 1 && (
             <div className="space-y-2.5 md:space-y-3">
-              <h3 className="font-display text-lg md:text-xl text-volcanic-foreground mb-4 md:mb-6">Choose Your Stylist</h3>
+              <h3 className="font-display text-lg md:text-xl text-volcanic-foreground mb-4 md:mb-6">Veldu hárgreiðara</h3>
               {stylistOptions.map((s) => (
                 <button
                   key={s.id}
@@ -108,10 +115,10 @@ const BookingSection = () => {
           {/* Step 2: Date & Time */}
           {step === 2 && (
             <div>
-              <h3 className="font-display text-lg md:text-xl text-volcanic-foreground mb-4 md:mb-6">Pick Date & Time</h3>
+              <h3 className="font-display text-lg md:text-xl text-volcanic-foreground mb-4 md:mb-6">Veldu dag og tíma</h3>
               <div className="mb-5 md:mb-6">
                 <label className="font-body text-volcanic-foreground/60 text-xs md:text-sm mb-2 flex items-center gap-2">
-                  <Calendar size={14} /> Select Date
+                  <Calendar size={14} /> Dagsetning
                 </label>
                 <input
                   type="date"
@@ -122,7 +129,7 @@ const BookingSection = () => {
               </div>
               <div>
                 <label className="font-body text-volcanic-foreground/60 text-xs md:text-sm mb-2 flex items-center gap-2">
-                  <Clock size={14} /> Select Time
+                  <Clock size={14} /> Tími
                 </label>
                 <div className="grid grid-cols-4 gap-1.5 md:gap-2">
                   {timeSlots.map((t) => (
@@ -149,23 +156,23 @@ const BookingSection = () => {
               <div className="w-14 h-14 md:w-16 md:h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
                 <Check className="text-gold" size={24} />
               </div>
-              <h3 className="font-display text-xl md:text-2xl text-volcanic-foreground mb-2">Booking Summary</h3>
-              <p className="font-body text-volcanic-foreground/60 mb-6 md:mb-8 text-sm">Review your appointment details</p>
+              <h3 className="font-display text-xl md:text-2xl text-volcanic-foreground mb-2">Bókunaryfirlit</h3>
+              <p className="font-body text-volcanic-foreground/60 mb-6 md:mb-8 text-sm">Yfirfarðu tímapöntunina þína</p>
               <div className="text-left space-y-3 md:space-y-4 bg-volcanic-foreground/5 p-4 md:p-6 border border-volcanic-foreground/10 mb-6 md:mb-8">
                 <div className="flex justify-between font-body text-sm md:text-base">
-                  <span className="text-volcanic-foreground/60">Service</span>
+                  <span className="text-volcanic-foreground/60">Þjónusta</span>
                   <span className="text-volcanic-foreground">{serviceOptions.find((s) => s.id === service)?.name}</span>
                 </div>
                 <div className="flex justify-between font-body text-sm md:text-base">
-                  <span className="text-volcanic-foreground/60">Stylist</span>
+                  <span className="text-volcanic-foreground/60">Hárgreiðari</span>
                   <span className="text-volcanic-foreground">{stylistOptions.find((s) => s.id === stylist)?.name}</span>
                 </div>
                 <div className="flex justify-between font-body text-sm md:text-base">
-                  <span className="text-volcanic-foreground/60">Date</span>
+                  <span className="text-volcanic-foreground/60">Dagsetning</span>
                   <span className="text-volcanic-foreground">{date}</span>
                 </div>
                 <div className="flex justify-between font-body text-sm md:text-base">
-                  <span className="text-volcanic-foreground/60">Time</span>
+                  <span className="text-volcanic-foreground/60">Tími</span>
                   <span className="text-volcanic-foreground">{time}</span>
                 </div>
               </div>
@@ -179,22 +186,22 @@ const BookingSection = () => {
                   setTime("");
                 }}
               >
-                Confirm Booking (Demo)
+                Staðfesta bókun (sýnidæmi)
               </button>
               <p className="font-body text-volcanic-foreground/40 text-xs mt-3 md:mt-4">
-                This is a demo. No actual booking will be made.
+                Þetta er sýnidæmi. Engin raunveruleg bókun verður gerð.
               </p>
             </div>
           )}
 
-          {/* Navigation - larger touch targets */}
+          {/* Navigation */}
           {step < 3 && (
             <div className="flex justify-between mt-6 md:mt-8">
               <button
                 onClick={() => setStep(Math.max(0, step - 1))}
                 className={`flex items-center gap-1 font-body text-sm text-volcanic-foreground/60 hover:text-gold active:text-gold transition-colors touch-target ${step === 0 ? "invisible" : ""}`}
               >
-                <ChevronLeft size={16} /> Back
+                <ChevronLeft size={16} /> Til baka
               </button>
               <button
                 onClick={() => canProceed() && setStep(step + 1)}
@@ -204,7 +211,7 @@ const BookingSection = () => {
                     : "text-volcanic-foreground/20 cursor-not-allowed"
                 }`}
               >
-                Next <ChevronRight size={16} />
+                Áfram <ChevronRight size={16} />
               </button>
             </div>
           )}

@@ -5,23 +5,23 @@ import stylist3 from "@/assets/stylist-3.jpg";
 const team = [
   {
     name: "Elísabet Jónsdóttir",
-    role: "Senior Stylist & Founder",
-    specialty: "Balayage & Color Specialist",
-    bio: "15 years of experience. Trained in London and Paris. Passionate about creating natural, lived-in color.",
+    role: "Aðalhárgreiðari & stofnandi",
+    specialty: "Balayage & litunarsérfræðingur",
+    bio: "15 ára reynsla. Menntun í London og París. Sérfræðingur í náttúrulegum, lifandi litum.",
     image: stylist1,
   },
   {
     name: "Bjarki Sigurðsson",
-    role: "Creative Director",
-    specialty: "Precision Cuts & Men's Grooming",
-    bio: "Award-winning stylist known for architectural cuts and modern men's styles.",
+    role: "Skapandi stjórnandi",
+    specialty: "Nákvæmnisklipping & karlasnyrtingar",
+    bio: "Verðlaunahafur þekktur fyrir arkitektúr-klippingar og nútímalega karlastíla.",
     image: stylist2,
   },
   {
     name: "Sólrún Magnúsdóttir",
-    role: "Color Artist",
-    specialty: "Vivid & Fantasy Colors",
-    bio: "The visionary behind our most daring transformations. If you can dream it, she can create it.",
+    role: "Litalistamaður",
+    specialty: "Áberandi & fantasíulitir",
+    bio: "Sýnin á bak við okkar djarfustu umbreytingar. Ef þú getur dreymt það, getur hún skapað það.",
     image: stylist3,
   },
 ];
@@ -31,8 +31,8 @@ const TeamSection = () => {
     <section id="team" className="py-16 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-10 md:mb-16">
-          <p className="text-gold tracking-[0.3em] uppercase text-xs md:text-sm font-body mb-2 md:mb-3">The Artists</p>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">Meet Our Team</h2>
+          <p className="text-gold tracking-[0.3em] uppercase text-xs md:text-sm font-body mb-2 md:mb-3">Listafolkið</p>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">Kynntu þér teymið</h2>
           <div className="w-16 h-px bg-gold mx-auto" />
         </div>
 

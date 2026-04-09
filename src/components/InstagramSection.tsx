@@ -22,9 +22,9 @@ const InstagramSection = () => {
         <div className="text-center mb-8 md:mb-12">
           <Instagram className="w-7 h-7 md:w-8 md:h-8 text-gold mx-auto mb-3 md:mb-4" />
           <p className="text-gold tracking-[0.3em] uppercase text-xs md:text-sm font-body mb-2 md:mb-3">@nordiksalon</p>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-3 md:mb-4">Follow Our Journey</h2>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-3 md:mb-4">Fylgdu okkur</h2>
           <p className="font-body text-muted-foreground text-base md:text-lg max-w-lg mx-auto">
-            See our latest client transformations and behind-the-scenes moments
+            Sjáðu nýjustu umbreytingar viðskiptavina okkar og bak við tjöldin
           </p>
         </div>
 
@@ -33,7 +33,7 @@ const InstagramSection = () => {
             <div key={i} className="relative group aspect-square overflow-hidden cursor-pointer active:scale-[0.98] transition-transform">
               <img
                 src={post.src}
-                alt="Instagram post"
+                alt="Instagram færsla"
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
@@ -57,7 +57,7 @@ const InstagramSection = () => {
             className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-6 md:px-8 py-3.5 md:py-3 text-xs md:text-sm tracking-[0.15em] uppercase font-body hover:border-gold hover:text-gold active:border-gold active:text-gold transition-all duration-300 touch-target"
           >
             <Instagram size={16} />
-            Follow Us on Instagram
+            Fylgdu okkur á Instagram
           </a>
         </div>
       </div>
