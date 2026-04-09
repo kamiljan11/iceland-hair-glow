@@ -1,38 +1,23 @@
 import stylist1 from "@/assets/stylist-1.jpg";
 import stylist2 from "@/assets/stylist-2.jpg";
 import stylist3 from "@/assets/stylist-3.jpg";
-
-const team = [
-  {
-    name: "Elísabet Jónsdóttir",
-    role: "Aðalhárgreiðari & stofnandi",
-    specialty: "Balayage & litunarsérfræðingur",
-    bio: "15 ára reynsla. Menntun í London og París. Sérfræðingur í náttúrulegum, lifandi litum.",
-    image: stylist1,
-  },
-  {
-    name: "Bjarki Sigurðsson",
-    role: "Skapandi stjórnandi",
-    specialty: "Nákvæmnisklipping & karlasnyrtingar",
-    bio: "Verðlaunahafur þekktur fyrir arkitektúr-klippingar og nútímalega karlastíla.",
-    image: stylist2,
-  },
-  {
-    name: "Sólrún Magnúsdóttir",
-    role: "Litalistamaður",
-    specialty: "Áberandi & fantasíulitir",
-    bio: "Sýnin á bak við okkar djarfustu umbreytingar. Ef þú getur dreymt það, getur hún skapað það.",
-    image: stylist3,
-  },
-];
+import { useI18n } from "@/i18n/translations";
 
 const TeamSection = () => {
+  const { t } = useI18n();
+
+  const team = [
+    { name: "Elísabet Jónsdóttir", role: t("team.elisabet.role"), specialty: t("team.elisabet.specialty"), bio: t("team.elisabet.bio"), image: stylist1 },
+    { name: "Bjarki Sigurðsson", role: t("team.bjarki.role"), specialty: t("team.bjarki.specialty"), bio: t("team.bjarki.bio"), image: stylist2 },
+    { name: "Sólrún Magnúsdóttir", role: t("team.solrun.role"), specialty: t("team.solrun.specialty"), bio: t("team.solrun.bio"), image: stylist3 },
+  ];
+
   return (
     <section id="team" className="py-14 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-8 md:mb-16">
-          <p className="text-gold tracking-[0.3em] uppercase text-xs font-body mb-2 md:mb-3">Listafolkið</p>
-          <h2 className="font-display text-2xl md:text-5xl font-bold text-foreground mb-3 md:mb-4">Kynntu þér teymið</h2>
+          <p className="text-gold tracking-[0.3em] uppercase text-xs font-body mb-2 md:mb-3">{t("team.label")}</p>
+          <h2 className="font-display text-2xl md:text-5xl font-bold text-foreground mb-3 md:mb-4">{t("team.title")}</h2>
           <div className="w-12 md:w-16 h-px bg-gold mx-auto" />
         </div>
 
@@ -40,16 +25,9 @@ const TeamSection = () => {
           {team.map((member) => (
             <div key={member.name} className="group flex-shrink-0 w-[72vw] sm:w-[50vw] md:w-auto snap-center">
               <div className="relative overflow-hidden mb-3 md:mb-6 aspect-[3/4]">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
+                <img src={member.image} alt={member.name} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-volcanic/90 via-volcanic/60 to-transparent p-3 md:p-6 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
-                  <p className="font-body text-volcanic-foreground/90 text-xs md:text-sm leading-relaxed">
-                    {member.bio}
-                  </p>
+                  <p className="font-body text-volcanic-foreground/90 text-xs md:text-sm leading-relaxed">{member.bio}</p>
                 </div>
               </div>
               <h3 className="font-display text-base md:text-xl font-semibold text-foreground">{member.name}</h3>

@@ -1,66 +1,69 @@
 import { Scissors, Palette, Sparkles, Heart } from "lucide-react";
 import { ScrollReveal } from "@/hooks/useScrollReveal";
-
-const services = [
-  {
-    icon: Scissors,
-    title: "Klipping & Stíll",
-    subtitle: "Cut & Style",
-    items: [
-      { name: "Women's Cut & Blow Dry", price: "8.900 ISK" },
-      { name: "Men's Cut & Style", price: "5.900 ISK" },
-      { name: "Children's Cut", price: "4.500 ISK" },
-      { name: "Fringe Trim", price: "2.500 ISK" },
-    ],
-  },
-  {
-    icon: Palette,
-    title: "Litun",
-    subtitle: "Color",
-    items: [
-      { name: "Full Color", price: "14.900 ISK" },
-      { name: "Balayage / Highlights", price: "22.900 ISK" },
-      { name: "Root Touch-Up", price: "9.900 ISK" },
-      { name: "Color Correction", price: "From 29.900 ISK" },
-    ],
-  },
-  {
-    icon: Sparkles,
-    title: "Meðferðir",
-    subtitle: "Treatments",
-    items: [
-      { name: "Keratin Treatment", price: "19.900 ISK" },
-      { name: "Deep Conditioning", price: "6.900 ISK" },
-      { name: "Scalp Treatment", price: "8.900 ISK" },
-      { name: "Olaplex Repair", price: "7.900 ISK" },
-    ],
-  },
-  {
-    icon: Heart,
-    title: "Brúðarsnyrtingar",
-    subtitle: "Bridal",
-    items: [
-      { name: "Bridal Updo", price: "24.900 ISK" },
-      { name: "Bridal Trial", price: "14.900 ISK" },
-      { name: "Bridesmaid Style", price: "12.900 ISK" },
-      { name: "Full Bridal Package", price: "49.900 ISK" },
-    ],
-  },
-];
+import { useI18n } from "@/i18n/translations";
 
 const ServicesSection = () => {
+  const { t } = useI18n();
+
+  const services = [
+    {
+      icon: Scissors,
+      title: t("services.cut.title"),
+      subtitle: t("services.cut.subtitle"),
+      items: [
+        { name: t("services.womens_cut"), price: "8.900 ISK" },
+        { name: t("services.mens_cut"), price: "5.900 ISK" },
+        { name: t("services.childrens_cut"), price: "4.500 ISK" },
+        { name: t("services.fringe_trim"), price: "2.500 ISK" },
+      ],
+    },
+    {
+      icon: Palette,
+      title: t("services.color.title"),
+      subtitle: t("services.color.subtitle"),
+      items: [
+        { name: t("services.full_color"), price: "14.900 ISK" },
+        { name: t("services.balayage"), price: "22.900 ISK" },
+        { name: t("services.root_touchup"), price: "9.900 ISK" },
+        { name: t("services.color_correction"), price: `${t("services.from")} 29.900 ISK` },
+      ],
+    },
+    {
+      icon: Sparkles,
+      title: t("services.treatments.title"),
+      subtitle: t("services.treatments.subtitle"),
+      items: [
+        { name: t("services.keratin"), price: "19.900 ISK" },
+        { name: t("services.deep_conditioning"), price: "6.900 ISK" },
+        { name: t("services.scalp"), price: "8.900 ISK" },
+        { name: t("services.olaplex"), price: "7.900 ISK" },
+      ],
+    },
+    {
+      icon: Heart,
+      title: t("services.bridal.title"),
+      subtitle: t("services.bridal.subtitle"),
+      items: [
+        { name: t("services.bridal_updo"), price: "24.900 ISK" },
+        { name: t("services.bridal_trial"), price: "14.900 ISK" },
+        { name: t("services.bridesmaid"), price: "12.900 ISK" },
+        { name: t("services.bridal_package"), price: "49.900 ISK" },
+      ],
+    },
+  ];
+
   return (
     <section id="services" className="py-14 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <ScrollReveal className="text-center mb-8 md:mb-16">
-          <p className="text-gold tracking-[0.3em] uppercase text-xs font-body mb-2 md:mb-3">Þjónusta</p>
-          <h2 className="font-display text-2xl md:text-5xl font-bold text-foreground mb-3 md:mb-4">Our Services</h2>
+          <p className="text-gold tracking-[0.3em] uppercase text-xs font-body mb-2 md:mb-3">{t("services.label")}</p>
+          <h2 className="font-display text-2xl md:text-5xl font-bold text-foreground mb-3 md:mb-4">{t("services.title")}</h2>
           <div className="w-12 md:w-16 h-px bg-gold mx-auto" />
         </ScrollReveal>
 
         <div className="flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0 md:snap-none scrollbar-none">
           {services.map((category, i) => (
-            <ScrollReveal key={category.title} delay={i * 0.1}>
+            <ScrollReveal key={i} delay={i * 0.1}>
               <div className="flex-shrink-0 w-[75vw] sm:w-[55vw] md:w-auto snap-center group bg-card border border-border p-5 md:p-8 hover:border-gold/40 transition-all duration-500 hover:shadow-xl hover:shadow-gold/5">
                 <category.icon className="w-6 h-6 md:w-8 md:h-8 text-gold mb-3 md:mb-6 group-hover:scale-110 transition-transform duration-300" />
                 <h3 className="font-display text-lg md:text-2xl font-semibold text-card-foreground">{category.title}</h3>

@@ -1,18 +1,21 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
-
-const navLinks = [
-  { label: "Þjónusta", href: "#services" },
-  { label: "Umsagnir", href: "#reviews" },
-  { label: "Gallerí", href: "#gallery" },
-  { label: "Teymið", href: "#team" },
-  { label: "Um okkur", href: "#about" },
-  { label: "Hafa samband", href: "#contact" },
-];
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useI18n } from "@/i18n/translations";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { t } = useI18n();
+
+  const navLinks = [
+    { label: t("nav.services"), href: "#services" },
+    { label: t("nav.reviews"), href: "#reviews" },
+    { label: t("nav.gallery"), href: "#gallery" },
+    { label: t("nav.team"), href: "#team" },
+    { label: t("nav.about"), href: "#about" },
+    { label: t("nav.contact"), href: "#contact" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -27,7 +30,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Top info bar — like real Icelandic salons (HárTékk, Blondie) */}
       <div className={`fixed top-0 left-0 right-0 z-50 bg-volcanic border-b border-volcanic-foreground/10 transition-all duration-300 ${scrolled ? "h-0 overflow-hidden opacity-0" : "h-auto opacity-100"}`}>
         <div className="container mx-auto px-4 md:px-6 py-1.5 flex items-center justify-between text-volcanic-foreground/50 font-body text-[11px] md:text-xs tracking-wide">
           <div className="hidden md:flex items-center gap-4">
@@ -43,7 +45,8 @@ const Navbar = () => {
             <span>Laugavegur 42, 101 Reykjavík</span>
           </div>
           <div className="hidden md:flex items-center gap-3">
-            <span className="text-volcanic-foreground/30">Mán–Fös 09–18 · Lau 10–16</span>
+            <span className="text-volcanic-foreground/30">{t("topbar.hours")}</span>
+            <LanguageSwitcher />
           </div>
         </div>
       </div>
@@ -60,7 +63,6 @@ const Navbar = () => {
             NORDIK <span className="text-gold">SALON</span>
           </a>
 
-          {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
@@ -75,21 +77,23 @@ const Navbar = () => {
               href="#booking"
               className="bg-gold text-gold-foreground px-6 py-2.5 text-sm tracking-[0.15em] uppercase font-body font-semibold hover:bg-gold/90 transition-colors duration-300"
             >
-              Bóka tíma
+              {t("nav.book")}
             </a>
+            {scrolled && <LanguageSwitcher />}
           </div>
 
-          {/* Mobile toggle */}
-          <button
-            className="lg:hidden text-volcanic-foreground touch-target flex items-center justify-center"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <LanguageSwitcher />
+            <button
+              className="text-volcanic-foreground touch-target flex items-center justify-center"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile menu */}
         {mobileOpen && (
           <div className="lg:hidden fixed inset-0 top-0 bg-volcanic/98 backdrop-blur-md animate-fade-in z-40 flex flex-col items-center justify-center safe-x">
             <button
@@ -115,9 +119,8 @@ const Navbar = () => {
                 onClick={() => setMobileOpen(false)}
                 className="bg-gold text-gold-foreground px-10 py-4 text-base tracking-[0.15em] uppercase font-body font-semibold mt-4 touch-target"
               >
-                Bóka tíma
+                {t("nav.book")}
               </a>
-              {/* Mobile contact info */}
               <div className="mt-6 flex flex-col items-center gap-3 text-volcanic-foreground/40 font-body text-sm">
                 <a href="tel:+3545551234" className="flex items-center gap-2 hover:text-gold">
                   <Phone size={14} /> +354 555 1234
