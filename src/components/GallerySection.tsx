@@ -8,28 +8,28 @@ import gallery5 from "@/assets/gallery-5.jpg";
 import gallery6 from "@/assets/gallery-6.jpg";
 
 const images = [
-  { src: gallery1, alt: "Platinum blonde waves", category: "Color" },
-  { src: gallery2, alt: "Caramel balayage", category: "Color" },
-  { src: gallery3, alt: "Bridal updo with flowers", category: "Bridal" },
-  { src: gallery4, alt: "Modern textured crop", category: "Cuts" },
-  { src: gallery5, alt: "Vivid copper hair", category: "Color" },
-  { src: gallery6, alt: "Defined curls", category: "Cuts" },
+  { src: gallery1, alt: "Platínu blóndur bylgjur", category: "Litun" },
+  { src: gallery2, alt: "Karamella balayage", category: "Litun" },
+  { src: gallery3, alt: "Brúðargreiðsla með blómum", category: "Brúður" },
+  { src: gallery4, alt: "Nútíma textúra klipping", category: "Klipping" },
+  { src: gallery5, alt: "Lifandi kopar litur", category: "Litun" },
+  { src: gallery6, alt: "Skilgreindir krullar", category: "Klipping" },
 ];
 
-const categories = ["All", "Color", "Cuts", "Bridal"];
+const categories = ["Allt", "Litun", "Klipping", "Brúður"];
 
 const GallerySection = () => {
   const [filter, setFilter] = useState("All");
   const [lightbox, setLightbox] = useState<string | null>(null);
 
-  const filtered = filter === "All" ? images : images.filter((img) => img.category === filter);
+  const filtered = filter === "Allt" ? images : images.filter((img) => img.category === filter);
 
   return (
     <section id="gallery" className="py-16 md:py-32 bg-volcanic">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-8 md:mb-12">
-          <p className="text-gold tracking-[0.3em] uppercase text-xs md:text-sm font-body mb-2 md:mb-3">Our Work</p>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-volcanic-foreground mb-4">Gallery</h2>
+          <p className="text-gold tracking-[0.3em] uppercase text-xs md:text-sm font-body mb-2 md:mb-3">Verkin okkar</p>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-volcanic-foreground mb-4">Gallerí</h2>
           <div className="w-16 h-px bg-gold mx-auto mb-6 md:mb-8" />
           <div className="flex justify-center gap-2 md:gap-4 flex-wrap">
             {categories.map((cat) => (
