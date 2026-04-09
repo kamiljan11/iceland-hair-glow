@@ -23,7 +23,7 @@ const Footer = () => {
             </div>
             {/* Eco badge — trending in Iceland (Græna stofan, etc.) */}
             <div className="mt-4 flex items-center gap-2 text-volcanic-foreground/40 font-body text-xs">
-              <Leaf size={14} className="text-green-500" />
+              <Leaf size={14} className="text-gold" />
               <span>Grøn Salon vottuð</span>
             </div>
           </div>
