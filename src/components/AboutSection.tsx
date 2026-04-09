@@ -3,9 +3,9 @@ import { ScrollReveal } from "@/hooks/useScrollReveal";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-16 md:py-32 bg-background overflow-hidden">
+    <section id="about" className="py-14 md:py-32 bg-background overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-center max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="relative">
               <img
@@ -22,13 +22,13 @@ const AboutSection = () => {
 
           <ScrollReveal delay={0.2}>
             <div>
-              <p className="text-gold tracking-[0.3em] uppercase text-xs md:text-sm font-body mb-2 md:mb-3">Sagan okkar</p>
-              <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
+              <p className="text-gold tracking-[0.3em] uppercase text-xs font-body mb-2 md:mb-3">Sagan okkar</p>
+              <h2 className="font-display text-2xl md:text-5xl font-bold text-foreground mb-3 md:mb-6">
                 Born from Ice
                 <br />
                 <span className="italic font-normal text-gold">&amp; Fire</span>
               </h2>
-              <div className="space-y-3 md:space-y-4 font-body text-muted-foreground text-base md:text-lg leading-relaxed">
+              <div className="space-y-3 md:space-y-4 font-body text-muted-foreground text-sm md:text-lg leading-relaxed">
                 <p>
                   Nestled in the heart of Reykjavík on historic Laugavegur, Nordik Salon draws its philosophy from
                   Iceland's extraordinary landscape — the raw power of Eyjafjallajökull, the
@@ -43,18 +43,18 @@ const AboutSection = () => {
                   through our doors to the final reveal of your transformation.
                 </p>
               </div>
-              <div className="mt-6 md:mt-8 flex gap-8 md:gap-12">
+              <div className="mt-5 md:mt-8 flex gap-6 md:gap-12">
                 <div>
-                  <span className="font-display text-2xl md:text-3xl font-bold text-gold">15+</span>
-                  <p className="font-body text-muted-foreground text-xs md:text-sm mt-1">Ára reynsla</p>
+                  <span className="font-display text-xl md:text-3xl font-bold text-gold">15+</span>
+                  <p className="font-body text-muted-foreground text-[10px] md:text-sm mt-0.5 md:mt-1">Ára reynsla</p>
                 </div>
                 <div>
-                  <span className="font-display text-2xl md:text-3xl font-bold text-gold">3.000+</span>
-                  <p className="font-body text-muted-foreground text-xs md:text-sm mt-1">Ánægðir viðskiptavinir</p>
+                  <span className="font-display text-xl md:text-3xl font-bold text-gold">3.000+</span>
+                  <p className="font-body text-muted-foreground text-[10px] md:text-sm mt-0.5 md:mt-1">Ánægðir viðskiptavinir</p>
                 </div>
                 <div>
-                  <span className="font-display text-2xl md:text-3xl font-bold text-gold">12</span>
-                  <p className="font-body text-muted-foreground text-xs md:text-sm mt-1">Verðlaun</p>
+                  <span className="font-display text-xl md:text-3xl font-bold text-gold">12</span>
+                  <p className="font-body text-muted-foreground text-[10px] md:text-sm mt-0.5 md:mt-1">Verðlaun</p>
                 </div>
               </div>
             </div>
