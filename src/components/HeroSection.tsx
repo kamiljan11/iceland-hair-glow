@@ -1,4 +1,5 @@
 import heroImg from "@/assets/hero-salon.jpg";
+import heroImgMobile from "@/assets/hero-salon-mobile.jpg";
 import logoIcon from "@/assets/logo-icon.png";
 import { useI18n } from "@/i18n/translations";
 import { useDemoModal } from "@/components/DemoModal";
@@ -10,9 +11,17 @@ const HeroSection = () => {
   return (
     <section className="relative h-screen-safe w-full overflow-hidden">
       <img
+        src={heroImgMobile}
+        alt="Luxury Nordic hair salon interior"
+        className="absolute inset-0 w-full h-full object-cover md:hidden"
+        width={768}
+        height={1344}
+        fetchPriority="high"
+      />
+      <img
         src={heroImg}
         alt="Luxury Nordic hair salon interior"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover hidden md:block"
         width={1920}
         height={1080}
         fetchPriority="high"
