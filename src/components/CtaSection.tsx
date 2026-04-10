@@ -1,5 +1,6 @@
 import { ArrowRight, Globe, Camera, BarChart3, Zap } from "lucide-react";
 import { useI18n } from "@/i18n/translations";
+import { useDemoModal } from "@/components/DemoModal";
 
 const features = [
   { icon: Globe, label: "Custom Website" },
@@ -9,6 +10,7 @@ const features = [
 ];
 
 const CtaSection = () => {
+  const { openDemo } = useDemoModal();
   const { t } = useI18n();
 
   return (
@@ -38,9 +40,9 @@ const CtaSection = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-            <a href="https://spirit-way-bloom.lovable.app" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-gold text-gold-foreground px-6 sm:px-10 py-3.5 md:py-4 text-xs md:text-sm tracking-[0.2em] uppercase font-body font-semibold hover:bg-gold/90 transition-all duration-300 hover:shadow-lg hover:shadow-gold/20 flex items-center justify-center gap-2 touch-target">
+            <button onClick={openDemo} className="w-full sm:w-auto bg-gold text-gold-foreground px-6 sm:px-10 py-3.5 md:py-4 text-xs md:text-sm tracking-[0.2em] uppercase font-body font-semibold hover:bg-gold/90 transition-all duration-300 hover:shadow-lg hover:shadow-gold/20 flex items-center justify-center gap-2 touch-target">
               {t("cta.start")} <ArrowRight size={14} />
-            </a>
+            </button>
             <p className="font-body text-volcanic-foreground/60 text-xs md:text-sm">
               {t("cta.from")} <span className="text-gold font-semibold">19,990 ISK/month</span>
             </p>

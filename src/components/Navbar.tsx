@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useI18n } from "@/i18n/translations";
+import { useDemoModal } from "@/components/DemoModal";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useI18n();
+  const { openDemo } = useDemoModal();
 
   const navLinks = [
     { label: t("nav.services"), href: "#services" },
@@ -33,12 +35,12 @@ const Navbar = () => {
       <div className={`fixed top-0 left-0 right-0 z-50 bg-volcanic border-b border-volcanic-foreground/10 transition-all duration-300 ${scrolled ? "h-0 overflow-hidden opacity-0" : "h-auto opacity-100"}`}>
         <div className="container mx-auto px-4 md:px-6 py-1.5 flex items-center justify-between text-volcanic-foreground/50 font-body text-[11px] md:text-xs tracking-wide">
           <div className="hidden md:flex items-center gap-4">
-            <a href="tel:+3545551234" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+            <button onClick={openDemo} className="flex items-center gap-1.5 hover:text-gold transition-colors">
               <Phone size={11} /> +354 555 1234
-            </a>
-            <a href="mailto:hello@nordiksalon.is" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+            </button>
+            <button onClick={openDemo} className="flex items-center gap-1.5 hover:text-gold transition-colors">
               <Mail size={11} /> hello@nordiksalon.is
-            </a>
+            </button>
           </div>
           <div className="flex items-center gap-1.5 mx-auto md:mx-0">
             <MapPin size={11} className="text-gold" />
@@ -73,12 +75,12 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#booking"
+            <button
+              onClick={openDemo}
               className="bg-gold text-gold-foreground px-6 py-2.5 text-sm tracking-[0.15em] uppercase font-body font-semibold hover:bg-gold/90 transition-colors duration-300"
             >
               {t("nav.book")}
-            </a>
+            </button>
             {scrolled && <LanguageSwitcher />}
           </div>
 
@@ -114,17 +116,16 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-              <a
-                href="#booking"
-                onClick={() => setMobileOpen(false)}
+              <button
+                onClick={() => { setMobileOpen(false); openDemo(); }}
                 className="bg-gold text-gold-foreground px-10 py-4 text-base tracking-[0.15em] uppercase font-body font-semibold mt-4 touch-target"
               >
                 {t("nav.book")}
-              </a>
+              </button>
               <div className="mt-6 flex flex-col items-center gap-3 text-volcanic-foreground/40 font-body text-sm">
-                <a href="tel:+3545551234" className="flex items-center gap-2 hover:text-gold">
+                <button onClick={() => { setMobileOpen(false); openDemo(); }} className="flex items-center gap-2 hover:text-gold">
                   <Phone size={14} /> +354 555 1234
-                </a>
+                </button>
                 <span className="flex items-center gap-2">
                   <MapPin size={14} className="text-gold" /> Laugavegur 42, Reykjavík
                 </span>
