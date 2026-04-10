@@ -1,6 +1,7 @@
 import { Scissors, Palette, Sparkles, Heart } from "lucide-react";
 import { ScrollReveal } from "@/hooks/useScrollReveal";
 import { useI18n } from "@/i18n/translations";
+import { ScissorsDivider } from "@/components/SvgOrnaments";
 
 const ServicesSection = () => {
   const { t } = useI18n();
@@ -58,7 +59,7 @@ const ServicesSection = () => {
         <ScrollReveal className="text-center mb-8 md:mb-16">
           <p className="text-gold tracking-[0.3em] uppercase text-xs font-body mb-2 md:mb-3">{t("services.label")}</p>
           <h2 className="font-display text-2xl md:text-5xl font-bold text-foreground mb-3 md:mb-4">{t("services.title")}</h2>
-          <div className="w-12 md:w-16 h-px bg-gold mx-auto" />
+          <ScissorsDivider className="w-28 md:w-36 h-6 mx-auto text-gold mt-2" />
         </ScrollReveal>
 
         <div className="flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0 md:snap-none scrollbar-none">

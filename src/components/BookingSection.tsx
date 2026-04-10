@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Calendar, Clock, User, Check, ChevronRight, ChevronLeft, ExternalLink } from "lucide-react";
 import { useI18n } from "@/i18n/translations";
 import { useDemoModal } from "@/components/DemoModal";
+import { HairStrand } from "@/components/SvgOrnaments";
 
 const timeSlots = ["09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
 
@@ -43,7 +44,7 @@ const BookingSection = () => {
         <div className="text-center mb-6 md:mb-12">
           <p className="text-gold tracking-[0.3em] uppercase text-xs font-body mb-2 md:mb-3">{t("booking.label")}</p>
           <h2 className="font-display text-2xl md:text-5xl font-bold text-volcanic-foreground mb-3 md:mb-4">{t("booking.title")}</h2>
-          <div className="w-12 md:w-16 h-px bg-gold mx-auto mb-3 md:mb-4" />
+          <HairStrand className="w-32 md:w-48 h-4 mx-auto text-gold mb-3 md:mb-4" />
           <p className="font-body text-volcanic-foreground/40 text-[10px] md:text-xs">
             {t("booking.noona")}{" "}
             <button onClick={openDemo} className="text-gold hover:underline inline-flex items-center gap-1">
