@@ -6,7 +6,7 @@ const LanguageSwitcher = () => {
   const langs: Lang[] = ["en", "is", "pl"];
 
   return (
-    <div className="flex items-center gap-0.5">
+    <div className="flex items-center gap-0">
       {langs.map((l) => (
         <button
           key={l}
