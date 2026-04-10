@@ -4,6 +4,7 @@ import { useDemoModal } from "@/components/DemoModal";
 
 const Footer = () => {
   const { t } = useI18n();
+  const { openDemo } = useDemoModal();
 
   return (
     <footer id="contact" className="bg-volcanic border-t border-volcanic-foreground/10">

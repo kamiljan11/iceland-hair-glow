@@ -19,6 +19,7 @@ const posts = [
 
 const InstagramSection = () => {
   const { t } = useI18n();
+  const { openDemo } = useDemoModal();
 
   return (
     <section id="instagram" className="py-14 md:py-32 bg-secondary/50">
