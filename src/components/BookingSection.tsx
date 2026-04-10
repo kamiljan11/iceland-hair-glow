@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Calendar, Clock, User, Check, ChevronRight, ChevronLeft, ExternalLink } from "lucide-react";
 import { useI18n } from "@/i18n/translations";
 import { useDemoModal } from "@/components/DemoModal";
-import { HairStrand } from "@/components/SvgOrnaments";
+import { HairStrand, WaveLinesBg } from "@/components/SvgOrnaments";
 
 const timeSlots = ["09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
 
@@ -39,7 +39,8 @@ const BookingSection = () => {
   };
 
   return (
-    <section id="booking" className="py-14 md:py-32 bg-volcanic">
+    <section id="booking" className="py-14 md:py-32 bg-volcanic relative">
+      <WaveLinesBg className="text-volcanic-foreground" />
       <div className="container mx-auto px-4 md:px-6 max-w-2xl">
         <div className="text-center mb-6 md:mb-12">
           <p className="text-gold tracking-[0.3em] uppercase text-xs font-body mb-2 md:mb-3">{t("booking.label")}</p>

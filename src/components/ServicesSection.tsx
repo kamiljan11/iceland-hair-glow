@@ -1,7 +1,7 @@
 import { Scissors, Palette, Sparkles, Heart } from "lucide-react";
 import { ScrollReveal } from "@/hooks/useScrollReveal";
 import { useI18n } from "@/i18n/translations";
-import { ScissorsDivider } from "@/components/SvgOrnaments";
+import { ScissorsDivider, HerringboneBg } from "@/components/SvgOrnaments";
 
 const ServicesSection = () => {
   const { t } = useI18n();
@@ -54,7 +54,8 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-14 md:py-32 bg-background">
+    <section id="services" className="py-14 md:py-32 bg-background relative">
+      <HerringboneBg className="text-foreground" />
       <div className="container mx-auto px-4 md:px-6">
         <ScrollReveal className="text-center mb-8 md:mb-16">
           <p className="text-gold tracking-[0.3em] uppercase text-xs font-body mb-2 md:mb-3">{t("services.label")}</p>

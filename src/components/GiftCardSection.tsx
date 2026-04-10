@@ -1,6 +1,7 @@
 import { Gift } from "lucide-react";
 import { useI18n } from "@/i18n/translations";
 import { useDemoModal } from "@/components/DemoModal";
+import { RadialBurstBg } from "@/components/SvgOrnaments";
 
 const GiftCardSection = () => {
   const { openDemo } = useDemoModal();
@@ -14,7 +15,8 @@ const GiftCardSection = () => {
   ];
 
   return (
-    <section className="py-14 md:py-32 bg-background">
+    <section className="py-14 md:py-32 bg-background relative overflow-hidden">
+      <RadialBurstBg className="text-gold" />
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-8 md:mb-16">
           <Gift className="w-6 h-6 md:w-8 md:h-8 text-gold mx-auto mb-2.5 md:mb-3" />

@@ -1,5 +1,5 @@
 /**
- * Hand-crafted Nordic-themed SVG ornaments for decorative accents.
+ * Hand-crafted Nordic-themed SVG ornaments for decorative accents and backgrounds.
  * All use currentColor so they inherit text color from parent.
  */
 
@@ -88,3 +88,98 @@ export const CornerOrnament = ({ className = "", position = "top-left" }: { clas
     </svg>
   );
 };
+
+/* ─── Background Patterns ─── */
+
+/** Subtle herringbone / chevron pattern — Nordic textile feel */
+export const HerringboneBg = ({ className = "" }: { className?: string }) => (
+  <div className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`} aria-hidden="true">
+    <svg className="w-full h-full" preserveAspectRatio="none">
+      <defs>
+        <pattern id="herringbone" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M0 20 L20 0 L40 20" stroke="currentColor" strokeWidth="0.5" fill="none" opacity="0.06" />
+          <path d="M0 40 L20 20 L40 40" stroke="currentColor" strokeWidth="0.5" fill="none" opacity="0.06" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#herringbone)" />
+    </svg>
+  </div>
+);
+
+/** Organic scattered dots — like snowfall or dust motes */
+export const ScatteredDotsBg = ({ className = "" }: { className?: string }) => (
+  <div className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`} aria-hidden="true">
+    <svg className="w-full h-full" preserveAspectRatio="none">
+      <defs>
+        <pattern id="scattered-dots" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+          <circle cx="12" cy="8" r="1" fill="currentColor" opacity="0.07" />
+          <circle cx="55" cy="22" r="0.7" fill="currentColor" opacity="0.05" />
+          <circle cx="30" cy="45" r="1.2" fill="currentColor" opacity="0.06" />
+          <circle cx="68" cy="60" r="0.8" fill="currentColor" opacity="0.04" />
+          <circle cx="8" cy="70" r="0.6" fill="currentColor" opacity="0.05" />
+          <circle cx="45" cy="72" r="1" fill="currentColor" opacity="0.07" />
+          <circle cx="72" cy="38" r="0.9" fill="currentColor" opacity="0.05" />
+          <circle cx="20" cy="25" r="0.5" fill="currentColor" opacity="0.04" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#scattered-dots)" />
+    </svg>
+  </div>
+);
+
+/** Radial sunburst / starburst — elegant behind headings */
+export const RadialBurstBg = ({ className = "" }: { className?: string }) => (
+  <div className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`} aria-hidden="true">
+    <svg className="w-full h-full" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice">
+      {Array.from({ length: 24 }).map((_, i) => (
+        <line
+          key={i}
+          x1="400" y1="400"
+          x2={400 + 500 * Math.cos((i * 15 * Math.PI) / 180)}
+          y2={400 + 500 * Math.sin((i * 15 * Math.PI) / 180)}
+          stroke="currentColor"
+          strokeWidth="0.5"
+          opacity="0.04"
+        />
+      ))}
+      <circle cx="400" cy="400" r="120" stroke="currentColor" strokeWidth="0.5" fill="none" opacity="0.04" />
+      <circle cx="400" cy="400" r="250" stroke="currentColor" strokeWidth="0.3" fill="none" opacity="0.03" />
+    </svg>
+  </div>
+);
+
+/** Flowing wave lines — organic, hair-inspired background */
+export const WaveLinesBg = ({ className = "" }: { className?: string }) => (
+  <div className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`} aria-hidden="true">
+    <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1200 400">
+      {[0.03, 0.025, 0.02].map((opacity, i) => (
+        <path
+          key={i}
+          d={`M-100 ${180 + i * 60} C100 ${120 + i * 40}, 300 ${240 + i * 30}, 500 ${180 + i * 50} C700 ${120 + i * 60}, 900 ${260 + i * 20}, 1100 ${180 + i * 40} L1300 ${180 + i * 50}`}
+          stroke="currentColor"
+          strokeWidth="1"
+          fill="none"
+          opacity={opacity}
+        />
+      ))}
+    </svg>
+  </div>
+);
+
+/** Diamond grid / argyle — luxe geometric pattern */
+export const DiamondGridBg = ({ className = "" }: { className?: string }) => (
+  <div className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`} aria-hidden="true">
+    <svg className="w-full h-full" preserveAspectRatio="none">
+      <defs>
+        <pattern id="diamond-grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path d="M30 0 L60 30 L30 60 L0 30 Z" stroke="currentColor" strokeWidth="0.4" fill="none" opacity="0.05" />
+          <circle cx="30" cy="0" r="1" fill="currentColor" opacity="0.04" />
+          <circle cx="60" cy="30" r="1" fill="currentColor" opacity="0.04" />
+          <circle cx="30" cy="60" r="1" fill="currentColor" opacity="0.04" />
+          <circle cx="0" cy="30" r="1" fill="currentColor" opacity="0.04" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#diamond-grid)" />
+    </svg>
+  </div>
+);

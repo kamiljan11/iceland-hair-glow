@@ -1,6 +1,6 @@
 import { Star } from "lucide-react";
 import { useI18n } from "@/i18n/translations";
-import { NordicKnot } from "@/components/SvgOrnaments";
+import { NordicKnot, ScatteredDotsBg } from "@/components/SvgOrnaments";
 
 const ReviewsSection = () => {
   const { t } = useI18n();
@@ -15,7 +15,8 @@ const ReviewsSection = () => {
   ];
 
   return (
-    <section id="reviews" className="py-14 md:py-32 bg-secondary/30">
+    <section id="reviews" className="py-14 md:py-32 bg-secondary/30 relative">
+      <ScatteredDotsBg className="text-foreground" />
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-8 md:mb-16">
           <p className="text-gold tracking-[0.3em] uppercase text-xs font-body mb-2 md:mb-3">{t("reviews.label")}</p>
