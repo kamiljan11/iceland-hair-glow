@@ -3,6 +3,7 @@ import heroImgMobile from "@/assets/hero-salon-mobile.jpg";
 import logoIcon from "@/assets/logo-icon.png";
 import { useI18n } from "@/i18n/translations";
 import { useDemoModal } from "@/components/DemoModal";
+import { DiamondDots } from "@/components/SvgOrnaments";
 
 const HeroSection = () => {
   const { t } = useI18n();
@@ -50,7 +51,8 @@ const HeroSection = () => {
           </a>
         </div>
 
-        <div className="mt-5 md:mt-8 opacity-0 animate-fade-up" style={{ animationDelay: "1.4s" }}>
+        <div className="mt-5 md:mt-8 opacity-0 animate-fade-up flex flex-col items-center" style={{ animationDelay: "1.4s" }}>
+          <DiamondDots className="w-16 md:w-24 h-2 text-volcanic-foreground/30 mb-2" />
           <p className="font-body text-volcanic-foreground/50 text-[10px] md:text-sm tracking-wider">
             {t("hero.firstVisit")}
           </p>

@@ -1,5 +1,6 @@
 import { Star } from "lucide-react";
 import { useI18n } from "@/i18n/translations";
+import { NordicKnot } from "@/components/SvgOrnaments";
 
 const ReviewsSection = () => {
   const { t } = useI18n();
@@ -19,7 +20,7 @@ const ReviewsSection = () => {
         <div className="text-center mb-8 md:mb-16">
           <p className="text-gold tracking-[0.3em] uppercase text-xs font-body mb-2 md:mb-3">{t("reviews.label")}</p>
           <h2 className="font-display text-2xl md:text-5xl font-bold text-foreground mb-3 md:mb-4">{t("reviews.title")}</h2>
-          <div className="w-12 md:w-16 h-px bg-gold mx-auto mb-4 md:mb-6" />
+          <NordicKnot className="w-20 md:w-24 h-5 mx-auto text-gold mb-4 md:mb-6" />
           <div className="inline-flex items-center gap-2 bg-card border border-border px-3 md:px-4 py-1.5 md:py-2">
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { useI18n } from "@/i18n/translations";
+import { DiamondDots } from "@/components/SvgOrnaments";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
@@ -37,7 +38,7 @@ const GallerySection = () => {
         <div className="text-center mb-6 md:mb-12">
           <p className="text-gold tracking-[0.3em] uppercase text-xs font-body mb-2 md:mb-3">{t("gallery.label")}</p>
           <h2 className="font-display text-2xl md:text-5xl font-bold text-volcanic-foreground mb-3 md:mb-4">{t("gallery.title")}</h2>
-          <div className="w-12 md:w-16 h-px bg-gold mx-auto mb-4 md:mb-8" />
+          <DiamondDots className="w-24 md:w-32 h-3 mx-auto text-gold mb-4 md:mb-8" />
           <div className="flex gap-2 md:gap-4 overflow-x-auto pb-2 md:pb-0 justify-start md:justify-center scrollbar-none -mx-4 px-4 md:mx-0 md:px-0">
             {categories.map((cat) => (
               <button

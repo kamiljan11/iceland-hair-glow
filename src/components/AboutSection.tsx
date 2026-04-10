@@ -1,6 +1,7 @@
 import aboutImg from "@/assets/about-salon.jpg";
 import { ScrollReveal } from "@/hooks/useScrollReveal";
 import { useI18n } from "@/i18n/translations";
+import { CornerOrnament } from "@/components/SvgOrnaments";
 
 const AboutSection = () => {
   const { t } = useI18n();
@@ -12,7 +13,8 @@ const AboutSection = () => {
           <ScrollReveal>
             <div className="relative">
               <img src={aboutImg} alt="Premium salon products" loading="lazy" width={1280} height={720} className="w-full h-auto object-cover" />
-              <div className="absolute -bottom-4 -right-4 w-24 md:w-32 h-24 md:h-32 border border-gold/30 hidden lg:block" />
+              <CornerOrnament position="top-left" className="absolute -top-3 -left-3 w-10 h-10 md:w-14 md:h-14 text-gold hidden lg:block" />
+              <CornerOrnament position="bottom-right" className="absolute -bottom-3 -right-3 w-10 h-10 md:w-14 md:h-14 text-gold hidden lg:block" />
             </div>
           </ScrollReveal>
 

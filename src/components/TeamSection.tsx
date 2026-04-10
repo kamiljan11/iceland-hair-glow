@@ -2,6 +2,7 @@ import stylist1 from "@/assets/stylist-1.jpg";
 import stylist2 from "@/assets/stylist-2.jpg";
 import stylist3 from "@/assets/stylist-3.jpg";
 import { useI18n } from "@/i18n/translations";
+import { LeafSprig } from "@/components/SvgOrnaments";
 
 const TeamSection = () => {
   const { t } = useI18n();
@@ -18,7 +19,11 @@ const TeamSection = () => {
         <div className="text-center mb-8 md:mb-16">
           <p className="text-gold tracking-[0.3em] uppercase text-xs font-body mb-2 md:mb-3">{t("team.label")}</p>
           <h2 className="font-display text-2xl md:text-5xl font-bold text-foreground mb-3 md:mb-4">{t("team.title")}</h2>
-          <div className="w-12 md:w-16 h-px bg-gold mx-auto" />
+          <div className="flex items-center justify-center gap-1 mt-2">
+            <LeafSprig className="w-6 h-6 md:w-8 md:h-8 text-gold" />
+            <div className="w-8 md:w-12 h-px bg-gold/30" />
+            <LeafSprig className="w-6 h-6 md:w-8 md:h-8 text-gold" flip />
+          </div>
         </div>
 
         <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-3 md:overflow-visible md:pb-0 md:snap-none md:max-w-5xl md:mx-auto scrollbar-none">
