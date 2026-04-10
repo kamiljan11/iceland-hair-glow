@@ -1,13 +1,13 @@
 import { useState, useRef, useCallback } from "react";
 import { useI18n } from "@/i18n/translations";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gallery5 from "@/assets/gallery-5.jpg";
+import baBefore1 from "@/assets/ba-before-1.jpg";
+import baAfter1 from "@/assets/ba-after-1.jpg";
+import baBefore2 from "@/assets/ba-before-2.jpg";
+import baAfter2 from "@/assets/ba-after-2.jpg";
 
 const transformations = [
-  { before: gallery3, after: gallery1, title: "Platinum Transformation", stylist: "Elísabet Jónsdóttir" },
-  { before: gallery2, after: gallery5, title: "Copper Vivid Color", stylist: "Sólrún Magnúsdóttir" },
+  { before: baBefore1, after: baAfter1, title: "Platinum Transformation", stylist: "Elísabet Jónsdóttir" },
+  { before: baBefore2, after: baAfter2, title: "Copper Vivid Color", stylist: "Sólrún Magnúsdóttir" },
 ];
 
 const Slider = ({ before, after, title, stylist, beforeLabel, afterLabel }: { before: string; after: string; title: string; stylist: string; beforeLabel: string; afterLabel: string }) => {
