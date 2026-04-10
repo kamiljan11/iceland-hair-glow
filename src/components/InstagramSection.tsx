@@ -1,5 +1,6 @@
 import { Heart, MessageCircle, Instagram } from "lucide-react";
 import { useI18n } from "@/i18n/translations";
+import { useDemoModal } from "@/components/DemoModal";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
@@ -18,6 +19,7 @@ const posts = [
 
 const InstagramSection = () => {
   const { t } = useI18n();
+  const { openDemo } = useDemoModal();
 
   return (
     <section id="instagram" className="py-14 md:py-32 bg-secondary/50">
@@ -46,10 +48,10 @@ const InstagramSection = () => {
         </div>
 
         <div className="text-center mt-6 md:mt-10">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-5 md:px-8 py-3 text-[11px] md:text-sm tracking-[0.15em] uppercase font-body hover:border-gold hover:text-gold transition-all duration-300 touch-target">
+          <button onClick={openDemo} className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-5 md:px-8 py-3 text-[11px] md:text-sm tracking-[0.15em] uppercase font-body hover:border-gold hover:text-gold transition-all duration-300 touch-target">
             <Instagram size={14} />
             {t("insta.follow")}
-          </a>
+          </button>
         </div>
       </div>
     </section>
