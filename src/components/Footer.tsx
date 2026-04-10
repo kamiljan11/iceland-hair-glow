@@ -1,5 +1,6 @@
 import { Instagram, Facebook, MapPin, Phone, Mail, Clock, Leaf, ExternalLink } from "lucide-react";
 import { useI18n } from "@/i18n/translations";
+import { useDemoModal } from "@/components/DemoModal";
 
 const Footer = () => {
   const { t } = useI18n();

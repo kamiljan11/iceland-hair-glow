@@ -1,5 +1,6 @@
 import { Heart, MessageCircle, Instagram } from "lucide-react";
 import { useI18n } from "@/i18n/translations";
+import { useDemoModal } from "@/components/DemoModal";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
