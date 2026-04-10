@@ -63,9 +63,9 @@ const BeforeAfterSection = () => {
           <p className="font-body text-volcanic-foreground/60 text-sm md:text-lg max-w-lg mx-auto">{t("ba.subtitle")}</p>
         </div>
 
-        <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 md:gap-8 md:overflow-visible md:pb-0 md:snap-none scrollbar-none max-w-4xl md:mx-auto">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 max-w-4xl mx-auto">
           {transformations.map((tr, i) => (
-            <div key={i} className="flex-shrink-0 w-[80vw] md:w-auto snap-center">
+            <div key={i}>
               <Slider {...tr} beforeLabel={t("ba.before")} afterLabel={t("ba.after")} />
             </div>
           ))}
