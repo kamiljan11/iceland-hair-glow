@@ -63,8 +63,8 @@ const ServicesSection = () => {
 
         <div className="flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0 md:snap-none scrollbar-none">
           {services.map((category, i) => (
-            <ScrollReveal key={i} delay={i * 0.1}>
-              <div className="flex-shrink-0 w-[75vw] sm:w-[55vw] md:w-auto snap-center group bg-card border border-border p-5 md:p-8 hover:border-gold/40 transition-all duration-500 hover:shadow-xl hover:shadow-gold/5">
+            <ScrollReveal key={i} delay={i * 0.1} className="h-full">
+              <div className="flex-shrink-0 w-[75vw] sm:w-[55vw] md:w-auto snap-center group bg-card border border-border p-5 md:p-8 hover:border-gold/40 transition-all duration-500 hover:shadow-xl hover:shadow-gold/5 h-full">
                 <category.icon className="w-6 h-6 md:w-8 md:h-8 text-gold mb-3 md:mb-6 group-hover:scale-110 transition-transform duration-300" />
                 <h3 className="font-display text-lg md:text-2xl font-semibold text-card-foreground">{category.title}</h3>
                 <p className="font-body text-[10px] md:text-xs text-muted-foreground mb-3 md:mb-6">{category.subtitle}</p>
