@@ -48,10 +48,10 @@ const InstagramSection = () => {
         </div>
 
         <div className="text-center mt-6 md:mt-10">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-5 md:px-8 py-3 text-[11px] md:text-sm tracking-[0.15em] uppercase font-body hover:border-gold hover:text-gold transition-all duration-300 touch-target">
+          <button onClick={openDemo} className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-5 md:px-8 py-3 text-[11px] md:text-sm tracking-[0.15em] uppercase font-body hover:border-gold hover:text-gold transition-all duration-300 touch-target">
             <Instagram size={14} />
             {t("insta.follow")}
-          </a>
+          </button>
         </div>
       </div>
     </section>

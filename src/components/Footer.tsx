@@ -16,8 +16,8 @@ const Footer = () => {
             </h3>
             <p className="font-body text-volcanic-foreground/60 text-xs md:text-base leading-relaxed">{t("footer.brand")}</p>
             <div className="flex gap-2.5 md:gap-3 mt-3 md:mt-6">
-              <a href="#" className="w-10 h-10 border border-volcanic-foreground/20 flex items-center justify-center text-volcanic-foreground/60 hover:border-gold hover:text-gold transition-all touch-target" aria-label="Instagram"><Instagram size={16} /></a>
-              <a href="#" className="w-10 h-10 border border-volcanic-foreground/20 flex items-center justify-center text-volcanic-foreground/60 hover:border-gold hover:text-gold transition-all touch-target" aria-label="Facebook"><Facebook size={16} /></a>
+              <button onClick={openDemo} className="w-10 h-10 border border-volcanic-foreground/20 flex items-center justify-center text-volcanic-foreground/60 hover:border-gold hover:text-gold transition-all touch-target" aria-label="Instagram"><Instagram size={16} /></button>
+              <button onClick={openDemo} className="w-10 h-10 border border-volcanic-foreground/20 flex items-center justify-center text-volcanic-foreground/60 hover:border-gold hover:text-gold transition-all touch-target" aria-label="Facebook"><Facebook size={16} /></button>
             </div>
             <div className="mt-3 flex items-center gap-2 text-volcanic-foreground/40 font-body text-[10px] md:text-xs">
               <Leaf size={12} className="text-gold" />
@@ -35,27 +35,27 @@ const Footer = () => {
               <div className="flex justify-between gap-2"><span>{t("footer.sat")}</span><span>10–16</span></div>
               <div className="flex justify-between gap-2"><span>{t("footer.sun")}</span><span className="text-volcanic-foreground/30">{t("footer.closed")}</span></div>
             </div>
-            <a href="https://noona.is" target="_blank" rel="noopener noreferrer" className="mt-3 md:mt-4 inline-flex items-center gap-1.5 font-body text-[10px] md:text-xs text-gold hover:text-gold/80 transition-colors">
+            <button onClick={openDemo} className="mt-3 md:mt-4 inline-flex items-center gap-1.5 font-body text-[10px] md:text-xs text-gold hover:text-gold/80 transition-colors">
               {t("footer.bookNoona")} <ExternalLink size={9} />
-            </a>
+            </button>
           </div>
 
           <div>
             <h4 className="font-display text-sm md:text-lg font-semibold text-volcanic-foreground mb-2.5 md:mb-4">{t("footer.contact")}</h4>
             <div className="space-y-2 md:space-y-3 font-body text-volcanic-foreground/60 text-[11px] md:text-base">
-              <a href="#" className="flex items-start gap-1.5 hover:text-gold transition-colors py-0.5">
+              <button onClick={openDemo} className="flex items-start gap-1.5 hover:text-gold transition-colors py-0.5 text-left">
                 <MapPin size={13} className="text-gold shrink-0 mt-0.5" /><span>Laugavegur 42, 101 Reykjavík</span>
-              </a>
-              <a href="tel:+3545551234" className="flex items-center gap-1.5 hover:text-gold transition-colors py-0.5">
+              </button>
+              <button onClick={openDemo} className="flex items-center gap-1.5 hover:text-gold transition-colors py-0.5">
                 <Phone size={13} className="text-gold shrink-0" />+354 555 1234
-              </a>
-              <a href="mailto:hello@nordiksalon.is" className="flex items-center gap-1.5 hover:text-gold transition-colors py-0.5">
+              </button>
+              <button onClick={openDemo} className="flex items-center gap-1.5 hover:text-gold transition-colors py-0.5">
                 <Mail size={13} className="text-gold shrink-0" />hello@nordiksalon.is
-              </a>
+              </button>
             </div>
-            <a href="https://ja.is" target="_blank" rel="noopener noreferrer" className="mt-3 md:mt-4 inline-flex items-center gap-1.5 font-body text-[10px] md:text-xs text-volcanic-foreground/30 hover:text-volcanic-foreground/50 transition-colors">
+            <button onClick={openDemo} className="mt-3 md:mt-4 inline-flex items-center gap-1.5 font-body text-[10px] md:text-xs text-volcanic-foreground/30 hover:text-volcanic-foreground/50 transition-colors">
               {t("footer.seeJa")} <ExternalLink size={9} />
-            </a>
+            </button>
           </div>
 
           <div className="col-span-2 lg:col-span-1">
