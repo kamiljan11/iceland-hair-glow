@@ -10,8 +10,10 @@ const transformations = [
   { before: baBefore2, after: baAfter2, title: "Copper Vivid Color", stylist: "Sólrún Magnúsdóttir" },
 ];
 
+/** Desktop: drag slider. Mobile: tap to toggle before/after. */
 const Slider = ({ before, after, title, stylist, beforeLabel, afterLabel }: { before: string; after: string; title: string; stylist: string; beforeLabel: string; afterLabel: string }) => {
   const [position, setPosition] = useState(50);
+  const [showAfter, setShowAfter] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
 
@@ -22,26 +24,57 @@ const Slider = ({ before, after, title, stylist, beforeLabel, afterLabel }: { be
     setPosition((x / rect.width) * 100);
   }, []);
 
+  // Desktop pointer events (hidden on mobile)
   const handlePointerDown = (e: React.PointerEvent) => { isDragging.current = true; (e.target as HTMLElement).setPointerCapture(e.pointerId); updatePosition(e.clientX); };
   const handlePointerMove = (e: React.PointerEvent) => { if (!isDragging.current) return; updatePosition(e.clientX); };
   const handlePointerUp = () => { isDragging.current = false; };
 
   return (
     <div className="space-y-2.5 md:space-y-3">
-      <div ref={containerRef} className="relative aspect-[3/4] overflow-hidden cursor-col-resize select-none touch-none" onPointerDown={handlePointerDown} onPointerMove={handlePointerMove} onPointerUp={handlePointerUp}>
+      {/* Desktop: interactive drag slider */}
+      <div
+        ref={containerRef}
+        className="relative aspect-[3/4] overflow-hidden cursor-col-resize select-none touch-none hidden md:block"
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+      >
         <img src={after} alt="After" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 overflow-hidden" style={{ width: `${position}%` }}>
           <img src={before} alt="Before" className="absolute inset-0 w-full h-full object-cover" style={{ minWidth: `${containerRef.current?.offsetWidth || 400}px` }} />
         </div>
         <div className="absolute top-0 bottom-0 z-10" style={{ left: `${position}%`, transform: "translateX(-50%)" }}>
           <div className="w-0.5 h-full bg-gold" />
-          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-9 h-9 md:w-10 md:h-10 bg-gold rounded-full flex items-center justify-center shadow-lg">
+          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 bg-gold rounded-full flex items-center justify-center shadow-lg">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="text-gold-foreground"><path d="M4 8L1 5M4 8L1 11M4 8H0M12 8L15 5M12 8L15 11M12 8H16" stroke="currentColor" strokeWidth="1.5" /></svg>
           </div>
         </div>
-        <span className="absolute top-2.5 left-2.5 md:top-3 md:left-3 bg-volcanic/70 text-volcanic-foreground text-[9px] md:text-xs px-1.5 md:px-2 py-0.5 md:py-1 font-body tracking-wider uppercase">{beforeLabel}</span>
-        <span className="absolute top-2.5 right-2.5 md:top-3 md:right-3 bg-gold/90 text-gold-foreground text-[9px] md:text-xs px-1.5 md:px-2 py-0.5 md:py-1 font-body tracking-wider uppercase">{afterLabel}</span>
+        <span className="absolute top-3 left-3 bg-volcanic/70 text-volcanic-foreground text-xs px-2 py-1 font-body tracking-wider uppercase">{beforeLabel}</span>
+        <span className="absolute top-3 right-3 bg-gold/90 text-gold-foreground text-xs px-2 py-1 font-body tracking-wider uppercase">{afterLabel}</span>
       </div>
+
+      {/* Mobile: tap to toggle before/after */}
+      <div className="md:hidden">
+        <button
+          onClick={() => setShowAfter(!showAfter)}
+          className="relative aspect-[3/4] w-full overflow-hidden block"
+        >
+          <img
+            src={showAfter ? after : before}
+            alt={showAfter ? "After" : "Before"}
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+          />
+          <span className={`absolute top-2.5 left-2.5 text-[9px] px-1.5 py-0.5 font-body tracking-wider uppercase transition-colors ${
+            !showAfter ? "bg-volcanic/70 text-volcanic-foreground" : "bg-gold/90 text-gold-foreground"
+          }`}>
+            {showAfter ? afterLabel : beforeLabel}
+          </span>
+          <span className="absolute bottom-3 inset-x-0 text-center font-body text-[10px] text-volcanic-foreground/60 tracking-wider uppercase">
+            {showAfter ? `← ${beforeLabel}` : `${afterLabel} →`}
+          </span>
+        </button>
+      </div>
+
       <div>
         <p className="font-display text-sm md:text-lg font-semibold text-volcanic-foreground">{title}</p>
         <p className="font-body text-[10px] md:text-sm text-gold">{stylist}</p>
