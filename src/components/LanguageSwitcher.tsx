@@ -1,11 +1,5 @@
 import { useI18n, Lang } from "@/i18n/translations";
 
-const flags: Record<Lang, string> = {
-  en: "🇬🇧",
-  is: "🇮🇸",
-  pl: "🇵🇱",
-};
-
 const LanguageSwitcher = () => {
   const { lang, setLang } = useI18n();
 
@@ -24,8 +18,7 @@ const LanguageSwitcher = () => {
           }`}
           aria-label={`Switch to ${l}`}
         >
-          <span className="mr-0.5">{flags[l]}</span>
-          <span className="hidden md:inline">{l.toUpperCase()}</span>
+          {l.toUpperCase()}
         </button>
       ))}
     </div>
