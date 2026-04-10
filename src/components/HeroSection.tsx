@@ -1,9 +1,11 @@
 import heroImg from "@/assets/hero-salon.jpg";
 import logoIcon from "@/assets/logo-icon.png";
 import { useI18n } from "@/i18n/translations";
+import { useDemoModal } from "@/components/DemoModal";
 
 const HeroSection = () => {
   const { t } = useI18n();
+  const { openDemo } = useDemoModal();
 
   return (
     <section className="relative h-screen-safe w-full overflow-hidden">
@@ -31,9 +33,9 @@ const HeroSection = () => {
           {t("hero.subtitle")}
         </p>
         <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-4 w-full sm:w-auto opacity-0 animate-fade-up px-2 sm:px-0" style={{ animationDelay: "1.1s" }}>
-          <a href="#booking" className="bg-gold text-gold-foreground px-6 sm:px-10 py-3.5 md:py-4 text-xs md:text-sm tracking-[0.2em] uppercase font-body font-semibold hover:bg-gold/90 transition-all duration-300 hover:shadow-lg hover:shadow-gold/20 text-center touch-target">
+          <button onClick={openDemo} className="bg-gold text-gold-foreground px-6 sm:px-10 py-3.5 md:py-4 text-xs md:text-sm tracking-[0.2em] uppercase font-body font-semibold hover:bg-gold/90 transition-all duration-300 hover:shadow-lg hover:shadow-gold/20 text-center touch-target">
             {t("nav.book")}
-          </a>
+          </button>
           <a href="#services" className="border border-volcanic-foreground/30 text-volcanic-foreground px-6 sm:px-10 py-3.5 md:py-4 text-xs md:text-sm tracking-[0.2em] uppercase font-body hover:border-gold hover:text-gold transition-all duration-300 text-center touch-target">
             {t("hero.services")}
           </a>

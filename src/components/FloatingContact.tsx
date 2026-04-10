@@ -1,10 +1,17 @@
 import { useState } from "react";
 import { Phone, X, MessageCircle, Calendar } from "lucide-react";
 import { useI18n } from "@/i18n/translations";
+import { useDemoModal } from "@/components/DemoModal";
 
 const FloatingContact = () => {
   const [open, setOpen] = useState(false);
   const { t } = useI18n();
+  const { openDemo } = useDemoModal();
+
+  const handleAction = () => {
+    setOpen(false);
+    openDemo();
+  };
 
   return (
     <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40 flex flex-col items-end gap-2 safe-bottom">
@@ -12,15 +19,15 @@ const FloatingContact = () => {
         <div className="bg-volcanic border border-volcanic-foreground/10 shadow-2xl p-3.5 md:p-4 mb-1 md:mb-2 animate-fade-in min-w-[180px] md:min-w-[200px]">
           <p className="font-display text-xs md:text-sm font-semibold text-volcanic-foreground mb-2.5 md:mb-3">{t("float.contact")}</p>
           <div className="space-y-1">
-            <a href="tel:+3545551234" className="flex items-center gap-2.5 font-body text-xs md:text-sm text-volcanic-foreground/70 hover:text-gold transition-colors py-2">
+            <button onClick={handleAction} className="flex items-center gap-2.5 font-body text-xs md:text-sm text-volcanic-foreground/70 hover:text-gold transition-colors py-2 w-full text-left">
               <Phone size={14} className="text-gold" /> +354 555 1234
-            </a>
-            <a href="https://wa.me/3545551234" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 font-body text-xs md:text-sm text-volcanic-foreground/70 hover:text-gold transition-colors py-2">
+            </button>
+            <button onClick={handleAction} className="flex items-center gap-2.5 font-body text-xs md:text-sm text-volcanic-foreground/70 hover:text-gold transition-colors py-2 w-full text-left">
               <MessageCircle size={14} className="text-gold" /> WhatsApp
-            </a>
-            <a href="#booking" onClick={() => setOpen(false)} className="flex items-center gap-2.5 font-body text-xs md:text-sm text-volcanic-foreground/70 hover:text-gold transition-colors py-2">
+            </button>
+            <button onClick={handleAction} className="flex items-center gap-2.5 font-body text-xs md:text-sm text-volcanic-foreground/70 hover:text-gold transition-colors py-2 w-full text-left">
               <Calendar size={14} className="text-gold" /> {t("float.book")}
-            </a>
+            </button>
           </div>
         </div>
       )}

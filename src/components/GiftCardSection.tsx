@@ -1,7 +1,9 @@
 import { Gift } from "lucide-react";
 import { useI18n } from "@/i18n/translations";
+import { useDemoModal } from "@/components/DemoModal";
 
 const GiftCardSection = () => {
+  const { openDemo } = useDemoModal();
   const { t } = useI18n();
 
   const tiers = [
@@ -37,10 +39,10 @@ const GiftCardSection = () => {
         </div>
 
         <div className="text-center mt-6 md:mt-10">
-          <a href="#booking" className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-6 md:px-8 py-3.5 md:py-4 text-xs md:text-sm tracking-[0.2em] uppercase font-body font-semibold hover:bg-gold/90 transition-all duration-300 hover:shadow-lg hover:shadow-gold/20 touch-target">
+          <button onClick={openDemo} className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-6 md:px-8 py-3.5 md:py-4 text-xs md:text-sm tracking-[0.2em] uppercase font-body font-semibold hover:bg-gold/90 transition-all duration-300 hover:shadow-lg hover:shadow-gold/20 touch-target">
             <Gift size={14} />
             {t("gift.purchase")}
-          </a>
+          </button>
           <p className="font-body text-muted-foreground text-[10px] md:text-xs mt-2.5 md:mt-3">{t("gift.available")}</p>
         </div>
       </div>

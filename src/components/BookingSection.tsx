@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Calendar, Clock, User, Check, ChevronRight, ChevronLeft, ExternalLink } from "lucide-react";
 import { useI18n } from "@/i18n/translations";
+import { useDemoModal } from "@/components/DemoModal";
 
 const timeSlots = ["09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
 
 const BookingSection = () => {
   const { t } = useI18n();
+  const { openDemo } = useDemoModal();
   const [step, setStep] = useState(0);
   const [service, setService] = useState("");
   const [stylist, setStylist] = useState("");
@@ -135,7 +137,7 @@ const BookingSection = () => {
                   <span className="text-volcanic-foreground">{time}</span>
                 </div>
               </div>
-              <button className="w-full bg-gold text-gold-foreground py-3.5 md:py-4 text-xs md:text-sm tracking-[0.2em] uppercase font-body font-semibold hover:bg-gold/90 transition-colors touch-target" onClick={() => { setStep(0); setService(""); setStylist(""); setDate(""); setTime(""); }}>
+              <button className="w-full bg-gold text-gold-foreground py-3.5 md:py-4 text-xs md:text-sm tracking-[0.2em] uppercase font-body font-semibold hover:bg-gold/90 transition-colors touch-target" onClick={() => { openDemo(); setStep(0); setService(""); setStylist(""); setDate(""); setTime(""); }}>
                 {t("booking.confirm")}
               </button>
               <p className="font-body text-volcanic-foreground/40 text-[9px] md:text-xs mt-2.5 md:mt-4">{t("booking.demo")}</p>
