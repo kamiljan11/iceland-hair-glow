@@ -46,9 +46,9 @@ const BookingSection = () => {
           <div className="w-12 md:w-16 h-px bg-gold mx-auto mb-3 md:mb-4" />
           <p className="font-body text-volcanic-foreground/40 text-[10px] md:text-xs">
             {t("booking.noona")}{" "}
-            <a href="https://noona.is" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline inline-flex items-center gap-1">
+            <button onClick={openDemo} className="text-gold hover:underline inline-flex items-center gap-1">
               Noona.is <ExternalLink size={9} />
-            </a>
+            </button>
           </p>
         </div>
 
