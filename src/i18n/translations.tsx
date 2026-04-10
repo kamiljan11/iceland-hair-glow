@@ -273,6 +273,16 @@ const translations = {
   "review.weeksAgo": { en: "weeks ago", is: "vikum síðan", pl: "tygodni temu" },
   "review.monthAgo": { en: "month ago", is: "mánuði síðan", pl: "miesiąc temu" },
   "review.monthsAgo": { en: "months ago", is: "mánuðum síðan", pl: "miesięcy temu" },
+
+  // Demo modal
+  "demo.title": { en: "This Is a Demo", is: "Þetta er sýnishorn", pl: "To jest demo" },
+  "demo.description": {
+    en: "This is a showcase website — the buttons simulate real functionality. Want a stunning website like this for your salon or business? We build custom sites that convert visitors into clients.",
+    is: "Þetta er sýnisvefsíða — hnapparnir herma eftir raunverulegri virkni. Viltu falleg vefsíðu eins og þessa fyrir þitt fyrirtæki? Við smíðum sérsniðnar síður sem breyta gestum í viðskiptavini.",
+    pl: "To strona demonstracyjna — przyciski symulują prawdziwą funkcjonalność. Chcesz oszałamiającą stronę jak ta dla swojego salonu lub firmy? Tworzymy strony, które zamieniają odwiedzających w klientów.",
+  },
+  "demo.cta": { en: "Get Your Own Website", is: "Fáðu þína eigin vefsíðu", pl: "Zamów swoją stronę" },
+  "demo.close": { en: "Continue Browsing", is: "Halda áfram", pl: "Kontynuuj przeglądanie" },
 } as const;
 
 type TranslationKey = keyof typeof translations;
