@@ -1,13 +1,14 @@
 import aboutImg from "@/assets/about-salon.jpg";
 import { ScrollReveal } from "@/hooks/useScrollReveal";
 import { useI18n } from "@/i18n/translations";
-import { CornerOrnament } from "@/components/SvgOrnaments";
+import { CornerOrnament, DiamondGridBg } from "@/components/SvgOrnaments";
 
 const AboutSection = () => {
   const { t } = useI18n();
 
   return (
-    <section id="about" className="py-14 md:py-32 bg-background overflow-hidden">
+    <section id="about" className="py-14 md:py-32 bg-background overflow-hidden relative">
+      <DiamondGridBg className="text-foreground" />
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-center max-w-6xl mx-auto">
           <ScrollReveal>
