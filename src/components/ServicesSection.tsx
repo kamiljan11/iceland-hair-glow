@@ -82,6 +82,15 @@ const ServicesSection = () => {
             </ScrollReveal>
           ))}
         </div>
+
+        <div className="text-center mt-8 md:mt-14">
+          <a
+            href="#booking"
+            className="inline-block bg-gold text-gold-foreground px-8 md:px-10 py-3 md:py-4 text-xs md:text-sm tracking-[0.2em] uppercase font-body font-semibold hover:bg-gold/90 transition-colors duration-300"
+          >
+            {t("nav.book")}
+          </a>
+        </div>
       </div>
     </section>
   );
