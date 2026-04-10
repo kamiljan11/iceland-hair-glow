@@ -35,7 +35,7 @@ const Navbar = () => {
       {/* Top info bar — hidden on scroll */}
       <div
         className={`bg-volcanic border-b border-volcanic-foreground/10 transition-all duration-300 overflow-hidden ${
-          scrolled ? "max-h-0 opacity-0" : "max-h-12 opacity-100"
+          scrolled ? "max-h-0 opacity-0 border-b-0" : "max-h-12 opacity-100"
         }`}
       >
         <div className="container mx-auto px-4 md:px-6 py-1.5 flex items-center justify-between text-volcanic-foreground/50 font-body text-[11px] md:text-xs tracking-wide">
