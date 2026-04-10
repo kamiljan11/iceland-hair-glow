@@ -31,8 +31,13 @@ const Navbar = () => {
   }, [mobileOpen]);
 
   return (
-    <>
-      <div className={`fixed top-0 left-0 right-0 z-50 bg-volcanic border-b border-volcanic-foreground/10 transition-all duration-300 ${scrolled ? "h-0 overflow-hidden opacity-0" : "h-auto opacity-100"}`}>
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* Top info bar — hidden on scroll */}
+      <div
+        className={`bg-volcanic border-b border-volcanic-foreground/10 transition-all duration-300 overflow-hidden ${
+          scrolled ? "max-h-0 opacity-0" : "max-h-12 opacity-100"
+        }`}
+      >
         <div className="container mx-auto px-4 md:px-6 py-1.5 flex items-center justify-between text-volcanic-foreground/50 font-body text-[11px] md:text-xs tracking-wide">
           <div className="hidden md:flex items-center gap-4">
             <button onClick={openDemo} className="flex items-center gap-1.5 hover:text-gold transition-colors">
@@ -48,23 +53,22 @@ const Navbar = () => {
           </div>
           <div className="hidden md:flex items-center gap-3">
             <span className="text-volcanic-foreground/30">{t("topbar.hours")}</span>
-            <LanguageSwitcher />
           </div>
         </div>
       </div>
 
+      {/* Main nav */}
       <nav
-        className={`fixed left-0 right-0 z-50 transition-all duration-500 safe-top ${
-          scrolled
-            ? "top-0 bg-volcanic/95 backdrop-blur-md shadow-lg py-2 md:py-3"
-            : "top-[32px] md:top-[28px] bg-transparent py-4 md:py-6"
+        className={`bg-volcanic/95 backdrop-blur-md transition-shadow duration-300 ${
+          scrolled ? "shadow-lg" : ""
         }`}
       >
-        <div className="container mx-auto flex items-center justify-between px-4 md:px-6 safe-x">
+        <div className="container mx-auto flex items-center justify-between px-4 md:px-6 py-3 md:py-4">
           <a href="#" className="font-display text-xl md:text-2xl font-bold tracking-wider text-volcanic-foreground">
             NORDIK <span className="text-gold">SALON</span>
           </a>
 
+          {/* Desktop links */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
@@ -81,9 +85,10 @@ const Navbar = () => {
             >
               {t("nav.book")}
             </button>
-            {scrolled && <LanguageSwitcher />}
+            <LanguageSwitcher />
           </div>
 
+          {/* Mobile controls */}
           <div className="flex items-center gap-2 lg:hidden">
             <LanguageSwitcher />
             <button
@@ -96,10 +101,11 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Mobile menu */}
         {mobileOpen && (
-          <div className="lg:hidden fixed inset-0 top-0 bg-volcanic/98 backdrop-blur-md animate-fade-in z-40 flex flex-col items-center justify-center safe-x">
+          <div className="lg:hidden fixed inset-0 top-0 bg-volcanic/98 backdrop-blur-md animate-fade-in z-40 flex flex-col items-center justify-center">
             <button
-              className="absolute top-4 right-4 text-volcanic-foreground touch-target flex items-center justify-center safe-top"
+              className="absolute top-4 right-4 text-volcanic-foreground touch-target flex items-center justify-center"
               onClick={() => setMobileOpen(false)}
               aria-label="Close menu"
             >
@@ -134,7 +140,7 @@ const Navbar = () => {
           </div>
         )}
       </nav>
-    </>
+    </header>
   );
 };
 
