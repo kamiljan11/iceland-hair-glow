@@ -1,5 +1,5 @@
 /**
- * Hand-crafted Nordic-themed SVG ornaments for decorative accents.
+ * Hand-crafted Nordic-themed SVG ornaments for decorative accents and backgrounds.
  * All use currentColor so they inherit text color from parent.
  */
 
