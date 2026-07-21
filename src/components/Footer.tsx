@@ -72,8 +72,8 @@ const Footer = () => {
         <div className="border-t border-volcanic-foreground/10 mt-8 md:mt-12 pt-5 md:pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-2 md:gap-4 safe-bottom">
             <div className="flex flex-col md:flex-row items-center gap-1 md:gap-4">
-              <p className="font-body text-volcanic-foreground/40 text-[10px] md:text-sm">© 2026 Nordik Salon ehf.{" · "}built by{" "}
-                <a href="https://kamiljan.com" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">Kamil Jan</a>
+              <p className="font-body text-volcanic-foreground/40 text-[10px] md:text-sm">© 2026 Nordik Salon ehf.{/* [ukryte 2026-07-21] {" · "}built by{" "}
+                <a href="https://kamiljan.com" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">Kamil Jan</a> */}
               </p>
               <span className="font-body text-volcanic-foreground/20 text-[9px] md:text-xs">Kt. 580211-0290</span>
             </div>
